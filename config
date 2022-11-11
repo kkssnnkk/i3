@@ -24,7 +24,7 @@ bindsym $mod+Shift+q kill
 
 bindsym $mod+f fullscreen toggle
 
-bindsym $mod+d exec --no-startup-id dmenu_run -nb '#282A2E' -sf '#C5C8C6' -sb '#660000' -nf '#C5C8C6'
+bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Terminus:pixelsize=20' -nb '#000000' -sf '#C5C8C6' -sb '#660000' -nf '#C5C8C6'
 
 bindsym Print exec --no-startup-id maim --format=png "/home/$USER/Pictures/screenshot-$(date -u +'%Y%m%d-%H%M%SZ')-all.png"
 bindsym $mod+Print exec --no-startup-id maim --format=png --window $(xdotool getactivewindow) "/home/$USER/Pictures/screenshot-$(date -u +'%Y%m%d-%H%M%SZ')-current.png"
