@@ -1,20 +1,31 @@
 set $mod Mod4
 
-font pango:Terminus 10
+floating_modifier $mod
 
-new_window pixel 1
-new_float pixel 1
+font pango:Terminus 10
 
 hide_edge_borders both
 
-floating_modifier $mod
+default_border none
+
+new_float pixel 1
+
+for_window [tiling] border pixel 1
+
+for_window [class="jetbrains-clion"] floating enable
+for_window [class="jetbrains-clion"] move absolute position center
+for_window [class="jetbrains-toolbox"] floating enable
+for_window [class="jetbrains-toolbox"] move absolute position center
+for_window [class="pavucontrol"] floating enable
+for_window [class="pavucontrol"] move absolute position center
+for_window [class="qalculate"] floating enable
+for_window [class="qalculate"] move absolute position center
 
 client.focused #660000 #660000 #C5C8C6 #660000 #660000
 
 # AUTOSTART
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-# exec --no-startup-id xautolock -time 30 -locker blurlock
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id setxkbmap -layout us,ua -option grp:lalt_toggle
 
 # BINDS
@@ -47,7 +58,7 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+s layout stacking
 bindsym $mod+e layout toggle split
 
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+space floating toggle
 
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
@@ -72,11 +83,11 @@ bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+0 mode "$mode_system"
-bindsym $mod+r mode "resize"
+bindsym $mod+r mode "RESIZE"
 
-set $mode_system (s)uspend, (r)eboot, (Shift+s)hutdown
+set $mode_system (S)USPEND, (R)EBOOT, (Shift+S)HUTDOWN
 
-mode "resize" {
+mode "RESIZE" {
         bindsym Left resize shrink width 5 px or 5 ppt
         bindsym Down resize grow height 5 px or 5 ppt
         bindsym Up resize shrink height 5 px or 5 ppt
